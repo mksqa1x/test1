@@ -36,6 +36,7 @@ casper.then(function testBootstrapperAndPrivacy() {
     this.test.assertTruthy(Bootstrapper, 'bootstrapper exists');
     this.test.assertTruthy(Bootstrapper.enablePrivacy, 'privacy enabled');
     this.test.assertTruthy(Bootstrapper.gateway, 'privacy exists');
+    this.test.assertTruthy(Bootstrapper.privacyDialog, 'privacy dialog exists');
 });
 
 casper.then(function testOverriddenFunctions() {
