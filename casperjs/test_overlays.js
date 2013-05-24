@@ -17,14 +17,12 @@ casper.wait(1000, function startFunction() {
     var jsvars = casper.evaluate(function evaluatePageFunction() {
         return {
             window: window,
-            document: document,
-            bool: window.Bootstrapper.privacyDialog.expand
+            document: document
         }
     });
     var bs = jsvars.window['Bootstrapper'];
     this.test.assertTruthy(bs, 'Bootstrapper loaded');
     this.test.assertTruthy(bs.privacyDialog, 'privacy dialog loaded');
-    this.echo(JSON.stringify(jsvars.bool));
 });
 
 casper.run(function() {
