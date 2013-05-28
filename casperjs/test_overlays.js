@@ -9,15 +9,16 @@ var jsvars;
 //http://www.motorolasolutions.com/FR-FR/Home
 //http://www.quest.com/legal/privacy.aspx?inEU=true
 
-casper.start('http://www.motorolasolutions.com/FR-FR/Home');
+casper.start('http://www.dell.se');
 
-// attempt to wait a second for the page to fully load (dialogs load asynchronously)
-casper.wait(1000, function startFunction() {
-    this.echo('Getting window and document objects for javascript testing');
-    var jsvars = casper.evaluate(function evaluatePageFunction() {
+casper.then(function startFunction() {
+    this.echo('Getting window and document objects for javascript testing....');
+    jsvars = casper.evaluate(function evaluatePageFunction() {
+        window.Bootstrapper.privacyDialog.expand();
         return {
             window: window,
-            document: document
+            document: document,
+            cookie: document.cookie
         }
     });
     var bs = jsvars.window['Bootstrapper'];
@@ -25,7 +26,30 @@ casper.wait(1000, function startFunction() {
     this.test.assertTruthy(bs.privacyDialog, 'privacy dialog loaded');
 });
 
-casper.run(function() {
+casper.then(function checkCookies() {
+    var cookie = casper.evaluate(function () {
+        __utils__.echo(document.cookie);
+        return document.cookie;
+    });
+
+    var cookies = cookie.split(/\s*;\s*/);
+    this.echo("cookie: " + jsvars.cookie);
+    var isCookieSet = false;
+    for (var idx in cookies) {
+        var str = cookies[idx];
+        if (/ENSIGHTEN/.test(cookies[idx])) {
+            casper.test.pass("cookie set to: " + str);
+            isCookieSet = true;
+        }
+    }
+    if (isCookieSet) {
+        casper.test.pass("cookies have been properly set by overlay");
+    } else {
+        casper.test.fail("no cookies set for Ensighten on this domain");
+    }
+});
+
+casper.run(function () {
 //    this.test.done(5); // checks that 5 assertions have been executed
 
     this.test.renderResults(true);
