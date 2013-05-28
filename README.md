@@ -42,6 +42,6 @@ Run the current test:
 *	The Project Dependencies should automatically setup. 
 *	The current tests can be ran in:
 *	/src/test/java/com/ensighten/tests
-*	Click on: MRTests.java and then C;ick the Green/White Arrow “RUN” in the topbar
+*	Click on: MRTests.java and then Click the Green/White Arrow “RUN” in the topbar
 
 
