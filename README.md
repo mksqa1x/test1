@@ -1,16 +1,19 @@
 Privacy-QA
 ==========
 WebDriverPrivacyTests "Windows" Setup:
+
 Install Java: i.e. “Java SE Development Kit 7u21 x64”
 * http://www.oracle.com/technetwork/java/javase/downloads/index.htm
 * Install to default location e.g. C:\Program Files\Java
 * Check on the command line: java –version
+
 Install Eclipse: i.e. “Eclipse IDE for Java Developers x64”
 * http://www.eclipse.org/downloads/ 
 *	Download and unpack the eclipse folder: e.g. To your desktop.
 *	Launch Eclipse.
 *	Set the workspace, e.g. C:\Users\Mark\workspace
 *	Click on the “Workbench” icon inside Eclipse.   
+
 Install the “TestNG” Plugin for Eclipse:
 *	Eclipse>Help>Install New Software...
 *	In the field: “Work with” enter: http://beust.com/eclipse
@@ -20,6 +23,7 @@ Install the “TestNG” Plugin for Eclipse:
 *	Ok/Next
 *	Check all boxes for TestNG.
 *	Follow the Eclipse prompts and Restart Eclipse. 
+
 Import Github Project into Eclipse:
 * File>Import>Git>Projects from Git>Next
 *	Select URI > Next
@@ -33,6 +37,7 @@ Import Github Project into Eclipse:
 *	Remote name: origin>Next
 *	Check: Import existing projects>Next
 *	Import Projects: no changes, keep defaults>Finish
+
 Run the current test:
 *	The Project Dependencies should automatically setup. 
 *	The current tests can be ran in:
