@@ -1,1 +1,3 @@
 **/.idea
+WebDriverPrivacyTests/target/**
+WebDriverPrivacyTests/chromedriver.log
