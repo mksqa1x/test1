@@ -8,11 +8,11 @@ Install Java: i.e. “Java SE Development Kit 7u21 x64”
 * Check on the command line: java –version
 
 Setup the Chrome / FireFox:
-* Downlaod the chorme server: chromedriver2_win32_0.8.zip 
+* Download the Chrome server: chromedriver2_win32_0.8.zip 
 * Located at: http://code.google.com/p/chromedriver/downloads/list  
 * Unpack the chromedriver.exe into: C:\chromedriver
 * Make sure the chrome browser is installed at: C:\Program Files (x86)\Google\Chrome\Application
-* Firfox versions known to work: 18.0.2 and 20.0.1, turn off auto updating
+* Firefox versions known to work: 18.0.2 and 20.0.1, turn off auto updating
 
 Install Eclipse: i.e. “Eclipse IDE for Java Developers x64”
 * http://www.eclipse.org/downloads/ 
@@ -50,5 +50,3 @@ Run the current test:
 *	The current tests can be ran in:
 *	/src/test/java/com/ensighten/tests
 *	Click on: MRTests.java and then Click the Green/White Arrow “RUN” in the topbar
-
-
