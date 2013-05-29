@@ -7,6 +7,12 @@ Install Java: i.e. “Java SE Development Kit 7u21 x64”
 * Install to default location e.g. C:\Program Files\Java
 * Check on the command line: java –version
 
+Setup the Chrome Driver:
+*Downlaod the chorme server: chromedriver2_win32_0.8.zip 
+*Located at: http://code.google.com/p/chromedriver/downloads/list  
+*Unpack the chromedriver.exe into: C:\chromedriver
+*Make sure the chrome browser is installed at: C:\Program Files (x86)\Google\Chrome\Application
+
 Install Eclipse: i.e. “Eclipse IDE for Java Developers x64”
 * http://www.eclipse.org/downloads/ 
 *	Download and unpack the eclipse folder: e.g. To your desktop.
