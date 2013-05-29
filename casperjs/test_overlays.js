@@ -6,15 +6,16 @@ var casper = require('casper').create({
 //var utils = require('utils');
 var jsvars;
 
+phantom.cookieEnabled = true;
 //http://www.motorolasolutions.com/FR-FR/Home
 //http://www.quest.com/legal/privacy.aspx?inEU=true
 
-casper.start('http://www.dell.se');
+casper.start('http://www.motorolasolutions.com/FR-FR/Home');
+//casper.start('http://www.dell.se');
 
-casper.then(function startFunction() {
+casper.wait(1000,function startFunction() {
     this.echo('Getting window and document objects for javascript testing....');
     jsvars = casper.evaluate(function evaluatePageFunction() {
-        window.Bootstrapper.privacyDialog.expand();
         return {
             window: window,
             document: document,
@@ -26,14 +27,9 @@ casper.then(function startFunction() {
     this.test.assertTruthy(bs.privacyDialog, 'privacy dialog loaded');
 });
 
-casper.then(function checkCookies() {
-    var cookie = casper.evaluate(function () {
-        __utils__.echo(document.cookie);
-        return document.cookie;
-    });
-
-    var cookies = cookie.split(/\s*;\s*/);
-    this.echo("cookie: " + jsvars.cookie);
+casper.wait(1000, function checkCookies() {
+    var cookies = jsvars.cookie.split(/\s*;\s*/);
+    this.log("cookie: " + jsvars.cookie, 'debug');
     var isCookieSet = false;
     for (var idx in cookies) {
         var str = cookies[idx];
@@ -50,7 +46,7 @@ casper.then(function checkCookies() {
 });
 
 casper.run(function () {
-//    this.test.done(5); // checks that 5 assertions have been executed
+    this.test.done(); // checks that 5 assertions have been executed
 
     this.test.renderResults(true);
 });
