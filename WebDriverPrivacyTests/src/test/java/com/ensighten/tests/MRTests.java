@@ -18,7 +18,7 @@ public class MRTests {
 	// ****************** BROWSER TESTS ***************************
 	@Test
 	public void Chrome_BootStrapper_Tests() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "C:/Users/Mark/Downloads/chromedriver.exe"); //Chrome Server
+		System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe"); //Chrome Server
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		capabilities.setCapability("chrome.binary", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"); //Chrome Browser
 		WebDriver CRdriver = new ChromeDriver();		
