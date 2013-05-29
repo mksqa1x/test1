@@ -7,7 +7,7 @@ Install Java: i.e. “Java SE Development Kit 7u21 x64”
 * Install to default location e.g. C:\Program Files\Java
 * Check on the command line: java –version
 
-Setup the Chrome / FireFox:
+Setup Chrome / FireFox:
 * Download the Chrome server: chromedriver2_win32_0.8.zip 
 * Located at: http://code.google.com/p/chromedriver/downloads/list  
 * Unpack the chromedriver.exe into: C:\chromedriver
