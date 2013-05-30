@@ -36,15 +36,22 @@ casper.then(function testBootstrapperAndPrivacy() {
     this.test.assertTruthy(Bootstrapper, 'bootstrapper exists');
     this.test.assertTruthy(Bootstrapper.enablePrivacy, 'privacy enabled');
     this.test.assertTruthy(Bootstrapper.gateway, 'privacy exists');
-    this.test.assertTruthy(Bootstrapper.privacyDialog, 'privacy dialog exists');
 });
 
 casper.then(function testOverriddenFunctions() {
     this.echo('making sure necessary element functions have been taken over properly');
     var nativeFuncRegex = new RegExp("function\\s+.+?\\(\\s*\\)" + "\\s*{\\s*\\[native code\\]\\s*}");
     for (var prop in jsvars.funcs) {
+
+        var functionName = prop;
+        var passed = true;
         for (var tmp in jsvars.funcs[prop]) {
-            this.test.assertFalsy(nativeFuncRegex.test(tmp), prop + " usurped");
+            passed = !nativeFuncRegex.test(tmp);
+        }
+        if (passed) {
+            this.test.pass(functionName + " usurped for all elements");
+        } else {
+            this.test.fail(functionName + " not usurped for all elements");
         }
     }
 });
@@ -59,7 +66,8 @@ casper.then(function testOverriddenFunctions() {
 //});
 
 casper.run(function() {
-//    this.test.done(5); // checks that 5 assertions have been executed
+    var numFunctionsToCheck = Object.keys(jsvars.funcs).length;
+    this.test.done(numFunctionsToCheck + 3); // checks that some number of assertions have been executed
 
     this.test.renderResults(true);
 });
