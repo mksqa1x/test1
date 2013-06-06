@@ -67,4 +67,8 @@ public class GridTests {
 		js.executeScript ("Bootstrapper.privacyDialog"); // Dialog is defined 					
 	}
 	
+	@AfterClass
+	  public void quitDriver() {
+	    driver.quit();
+	}	
 }	
