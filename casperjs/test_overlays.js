@@ -1,12 +1,10 @@
 var casper = require('casper').create({
-//    verbose: true,
-//    logLevel: 'debug',
+    verbose: true,
+    logLevel: 'debug',
     clientScripts: ['lib/jquery-2.0.2.min.js']
 });
 //var utils = require('utils');
 var jsvars;
-
-phantom.cookieEnabled = true;
 //http://www.motorolasolutions.com/FR-FR/Home
 //http://www.quest.com/legal/privacy.aspx?inEU=true
 
