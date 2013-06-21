@@ -1,17 +1,16 @@
 var casper = require('casper').create({
-//    verbose: true,
-//    logLevel: 'debug',
-    clientScripts: ['lib/jquery.min.js']
+    verbose: true,
+    logLevel: 'debug',
+    clientScripts: ['lib/jquery-2.0.2.min.js']
 });
 //var utils = require('utils');
 var jsvars;
-
-phantom.cookieEnabled = true;
 //http://www.motorolasolutions.com/FR-FR/Home
 //http://www.quest.com/legal/privacy.aspx?inEU=true
 
-casper.start('http://www.motorolasolutions.com/FR-FR/Home');
-//casper.start('http://www.dell.se');
+//casper.start('http://www.motorolasolutions.com/FR-FR/Home');
+//casper.start('http://www.quest.com/legal/privacy.aspx?inEU=true');
+casper.start('http://www.dell.se');
 
 casper.wait(1000,function startFunction() {
     this.echo('Getting window and document objects for javascript testing....');
@@ -19,9 +18,24 @@ casper.wait(1000,function startFunction() {
         return {
             window: window,
             document: document,
-            cookie: document.cookie
+            cookie: document.cookie,
+            mini_overlay: $('div').filter(function() {return this.id.match(/ENS_mini$/);}).eq(0).length,
+            overlay_link: $('.privacysettingslink').eq(0).length
         }
     });
+});
+
+casper.then(function testOverlays() {
+    if (jsvars.mini_overlay) {
+        casper.test.pass("mini overlay found");
+    }
+    if (jsvars.overlay_link) {
+        casper.test.pass("overlay link found");
+    }
+    if (!(jsvars.overlay_link || jsvars.mini_overlay)) {
+        casper.test.fail("could not find any privacy link or mini overlay on this page");
+    }
+
     var bs = jsvars.window['Bootstrapper'];
     this.test.assertTruthy(bs, 'Bootstrapper loaded');
     this.test.assertTruthy(bs.privacyDialog, 'privacy dialog loaded');
@@ -41,7 +55,8 @@ casper.wait(1000, function checkCookies() {
     if (isCookieSet) {
         casper.test.pass("cookies have been properly set by overlay");
     } else {
-        casper.test.fail("no cookies set for Ensighten on this domain");
+        this.log("no cookies set for Ensighten on this domain", 'warn');
+        this.echo("WARNING: no cookies set for Ensighten on this domain.  This may be the expected case for the opt-in/explicit use cases.");
     }
 });
 

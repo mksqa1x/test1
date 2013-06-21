@@ -1,12 +1,12 @@
 var casper = require('casper').create({
 //    verbose: true,
 //    logLevel: 'debug',
-    clientScripts: ['lib/jquery.min.js']
+    clientScripts: ['lib/jquery-2.0.2.min.js']
 });
 //var utils = require('utils');
 var jsvars;
 
-casper.start('http://www.dell.se/', function() {
+casper.start('http://www.norgren.com/uk', function() {
     this.echo('Getting window and document objects for javascript testing');
     jsvars = casper.evaluate(function() {
         var funcs = {
