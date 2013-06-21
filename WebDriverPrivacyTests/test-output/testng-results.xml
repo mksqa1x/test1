@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Ensighten" duration-ms="64235" started-at="2013-06-21T09:57:41Z" finished-at="2013-06-21T09:58:45Z">
+    <groups>
+    </groups>
+    <test name="Test1" duration-ms="64235" started-at="2013-06-21T09:57:41Z" finished-at="2013-06-21T09:58:45Z">
+      <class name="com.ensighten.tests.GridTests">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.ensighten.tests.GridTests@1bf75734]" name="setup" is-config="true" duration-ms="21516" started-at="2013-06-21T02:57:41Z" finished-at="2013-06-21T02:58:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="BootStrapperTest()[pri:0, instance:com.ensighten.tests.GridTests@1bf75734]" name="BootStrapperTest" duration-ms="22112" started-at="2013-06-21T02:58:02Z" finished-at="2013-06-21T02:58:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BootStrapperTest -->
+        <test-method status="PASS" signature="OverlayRuleTest()[pri:0, instance:com.ensighten.tests.GridTests@1bf75734]" name="OverlayRuleTest" duration-ms="20592" started-at="2013-06-21T02:58:24Z" finished-at="2013-06-21T02:58:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OverlayRuleTest -->
+      </class> <!-- com.ensighten.tests.GridTests -->
+    </test> <!-- Test1 -->
+  </suite> <!-- Ensighten -->
+</testng-results>
