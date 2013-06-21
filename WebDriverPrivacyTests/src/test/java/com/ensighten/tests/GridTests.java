@@ -23,7 +23,7 @@ public class GridTests {
 			System.out.println("firefox");
 			capability= DesiredCapabilities.firefox();
 			capability.setBrowserName("firefox");
-			capability.setVersion("8");
+			capability.setVersion("3.6");
 			//capability.setPlatform(org.openqa.selenium.Platform.WINDOWS);						
 		}
 		
